@@ -51,9 +51,9 @@ const deleteGoal = asyncHandler(async (req, res) => {
         res.status(404);
         throw new Error("goal not removed");
     }
-   await goals.remove({id:req.params.id})
+   await goals.remove()
 
-  res.status(200).json({ message: `Deleted goals by ${req.params.id}` });
+  res.status(200).json({id:req.params.id});
 });
 
 module.exports = {
