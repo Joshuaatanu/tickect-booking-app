@@ -5,8 +5,7 @@ const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
 const port = process.env.PORT || 5000;
 
-
-connectDB()
+connectDB();
 const app = express();
 
 app.use(express.json());
@@ -14,9 +13,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
+//routes
 app.use("/api/goals", require("./routes/goalRoutes"));
-
+app.use("/api/users", require("./routes/userRoute"));
+//error handlers
 app.use(errorHandler);
+
+//start server at port
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
