@@ -2,17 +2,19 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Header from "./components/Header";
 function App() {
   return (
     <>
       <Router>
         <div className="container">
+        <Header/>
         <Routes>
           <Route path="/" element={<Dashboard/>}/>   
-          <Route path="/" element={<Login/>}/>   
-         <Route path="/" element={<Register/>}/>
+          <Route path="/login" element={<Login/>}/>   
+         <Route path="/register" element={<Register/>}/>
         </Routes>
-          <h1> my app</h1>
+          
         </div>
       </Router>
     </>
